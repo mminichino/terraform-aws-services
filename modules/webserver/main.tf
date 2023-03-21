@@ -151,7 +151,7 @@ resource "aws_instance" "ubuntu" {
       host        = self.public_ip
       type        = "ssh"
       user        = "ubuntu"
-      private_key = var.ssh_key
+      private_key = base64decode(var.ssh_private_key)
     }
   }
 }

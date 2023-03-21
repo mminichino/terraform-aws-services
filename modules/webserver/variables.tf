@@ -16,6 +16,10 @@ variable "ssh_key" {
   description = "Admin SSH key"
 }
 
+variable "ssh_private_key" {
+  description = "Admin SSH private key"
+}
+
 variable "cidr_block" {
   description = "VPC CIDR"
 }
