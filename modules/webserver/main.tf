@@ -133,7 +133,7 @@ resource "aws_instance" "ubuntu" {
 
   root_block_device {
     volume_size = var.root_volume_size
-    volume_type = var.machine_type
+    volume_type = var.root_volume_type
     iops        = var.root_volume_iops
   }
 
