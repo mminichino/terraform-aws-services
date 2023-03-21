@@ -123,13 +123,14 @@ resource "aws_security_group" "env_sg" {
 }
 
 resource "aws_instance" "ubuntu" {
-  count        = var.node_count
-  ami           = data.aws_ami.ubuntu.id
-  instance_type = var.machine_type
-  key_name      = aws_key_pair.host_key.key_name
+  count                  = var.node_count
+  ami                    = data.aws_ami.ubuntu.id
+  instance_type          = var.machine_type
+  key_name               = aws_key_pair.host_key.key_name
   vpc_security_group_ids = [aws_security_group.env_sg.id]
   subnet_id              = aws_subnet.env_subnet.id
   availability_zone      = var.aws_zone
+  depends_on             = [aws_vpc.env_vpc, aws_key_pair.host_key]
 
   root_block_device {
     volume_size = var.root_volume_size
