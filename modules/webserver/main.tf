@@ -146,7 +146,7 @@ resource "aws_instance" "ubuntu" {
     inline = [
       "sudo apt update -y",
       "sudo apt install -y nginx",
-      "echo Hello_World > /var/www/html/index.html",
+      "sudo sh -c 'echo Hello_World > /var/www/html/index.html'",
     ]
     connection {
       host        = self.public_ip
